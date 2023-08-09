@@ -1,3 +1,10 @@
+# How to run
+
+1. Make sure your webcam is on.
+2. You need to have both the `resources` folder and `opencv_world480.dll` alongside the .exe.
+3. Run `opencvgame.exe`.
+
+<br/>
 
 # How to build an OpenCV project in Windows via command line:
 
