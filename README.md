@@ -7,8 +7,9 @@ A simple game where you catch coins with your head. Developed with OpenCV and C+
 # How to run
 
 1. Make sure your webcam is on.
-2. You need to have both the `resources` folder and `opencv_world480.dll` alongside the .exe.
-3. Run `opencvgame.exe`.
+2. You need to download at least `opencvgame.exe`, the `resources` folder and `opencv_world480.dll` and put them in the same folder.
+3. Run `opencvgame.exe` either by double-clicking or running from the command line.
+4. You can also run `opencvgame.exe hands` from the command line to play a version of the game where you use your hands instead of your head to catch the coins. Please note that this version uses more CPU.
 
 <br/>
 
