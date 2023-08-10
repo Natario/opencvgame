@@ -18,12 +18,15 @@ int main(int argc, char *argv[]) {
     try {
 
         bool handDetection = false;
+        bool debugMode = false;
 
         // Parse cmd line arguments
         for( int count = 0; count < argc; count++ ) {
             // std::cout << "  argv[" << count << "]   "  << argv[count] << "\n";
             if(strcmp(argv[count], "hand") == 0 || strcmp(argv[count], "hands") == 0)
                 handDetection = true;
+            if(strcmp(argv[count], "debug") == 0)
+                debugMode = true;
         }
         
         cv::VideoCapture videoSource{0};
@@ -126,7 +129,8 @@ int main(int argc, char *argv[]) {
                 
                 for(int i = 0; i < faces.rows; i++) {
                     // debug rectangle
-                    // cv::rectangle(videoFrameMirror,cv::Rect2i(int(faces.at<float>(i, 0)),int(faces.at<float>(i, 1)), int(faces.at<float>(i, 2)), int(faces.at<float>(i, 3))), cv::Scalar(0, 255, 0), 2);
+                    if(debugMode)
+                        cv::rectangle(videoFrameMirror,cv::Rect2i(int(faces.at<float>(i, 0)),int(faces.at<float>(i, 1)), int(faces.at<float>(i, 2)), int(faces.at<float>(i, 3))), cv::Scalar(0, 255, 0), 2);
 
                 // calculate if there is overlap between face and figure - https://answers.opencv.org/question/59544/percentage-of-overlap/
                     int left = cv::max(int(faces.at<float>(i, 0)), figureX);
@@ -212,7 +216,8 @@ int main(int argc, char *argv[]) {
                     int idx = indices[i];
                     cv::Rect box = boxes[idx];
                     // debug rectangle
-                    // cv::rectangle(videoFrameMirror, box, cv::Scalar(0, 255, 0), 2);
+                    if(debugMode)
+                        cv::rectangle(videoFrameMirror, box, cv::Scalar(0, 255, 0), 2);
 
                     // calculate if there is overlap between face and figure - https://answers.opencv.org/question/59544/percentage-of-overlap/
                     int left = cv::max(box.tl().x, figureX);
@@ -258,7 +263,8 @@ int main(int argc, char *argv[]) {
                 }
             }
             // rectangle that can be used as a figure to hit or as a debug bounding box of custom image
-            // cv::rectangle(videoFrameMirror, {figureX,figureY} , {figureX+customFigures[curFigure].cols,figureY+customFigures[curFigure].rows}, cv::Scalar(0,0,255), 2);
+            if(debugMode)
+                cv::rectangle(videoFrameMirror, {figureX,figureY} , {figureX+customFigures[curFigure].cols,figureY+customFigures[curFigure].rows}, cv::Scalar(0,0,255), 2);
             
 
             

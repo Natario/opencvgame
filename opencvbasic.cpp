@@ -37,7 +37,7 @@ void getContours(cv::Mat imgDil, cv::Mat img) {
 int main() {
 
     // // 
-    // // Basic OpenCV program - code suggestion by ChatGPT
+    // // Basic OpenCV program - content suggested by ChatGPT when prompted for "OpenCV's most basic program"
     // // 
 
     // // Load an image from the file system
