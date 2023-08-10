@@ -1,3 +1,9 @@
+# Coin Catcher
+
+A simple game where you catch coins with your head. Developed with OpenCV and C++
+
+![preview](preview.png "Preview")
+
 # How to run
 
 1. Make sure your webcam is on.
